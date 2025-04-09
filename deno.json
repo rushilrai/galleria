@@ -1,0 +1,19 @@
+{
+    "tasks": {
+        "dev": "astro dev",
+        "build": "astro build"
+    },
+    "fmt": {
+        "options": {
+            "useTabs": false,
+            "lineWidth": 80,
+            "indentWidth": 2,
+            "singleQuote": false,
+            "semiColons": true
+        }
+    },
+    "imports": {
+        "astro": "npm:astro@^5.2.5"
+    },
+    "nodeModulesDir": "auto"
+}

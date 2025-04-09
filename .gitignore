@@ -1,0 +1,6 @@
+/.astro
+/node_modules
+/dist
+/logs
+.DS_Store
+.env
