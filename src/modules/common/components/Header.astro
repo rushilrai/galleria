@@ -1,0 +1,15 @@
+---
+import { Image } from "astro:assets";
+import LogoLightBg from "../../../assets/images/logo/logo-light-bg.png";
+---
+
+<header class="flex max-w-xl flex-row">
+  <Image
+    src={LogoLightBg}
+    alt="logo with the initials RR"
+    width={100}
+    height={100}
+    densities={[1, 2]}
+  />
+  <h1>header</h1>
+</header>

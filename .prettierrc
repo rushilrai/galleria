@@ -5,5 +5,13 @@
   "singleQuote": false,
   "semi": true,
   "tailwindStylesheet": "./src/modules/common/config/index.css",
-  "plugins": ["prettier-plugin-tailwindcss"]
+  "plugins": ["prettier-plugin-astro", "prettier-plugin-tailwindcss"],
+  "overrides": [
+    {
+      "files": "*.astro",
+      "options": {
+        "parser": "astro"
+      }
+    }
+  ]
 }

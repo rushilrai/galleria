@@ -1,16 +1,18 @@
 ---
 import "../config/index.css";
+import Header from "./Header.astro";
 
-console.log("galleria")
+console.log("galleria");
 ---
 
 <html data-theme="rr-theme" lang="en">
   <head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
   </head>
 
-  <body>
-      <slot />
+  <body class="flex flex-col min-h-screen items-center bg-base-200">
+    <Header />
+    <slot />
   </body>
 </html>
