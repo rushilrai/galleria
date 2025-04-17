@@ -3,13 +3,44 @@ import { Image } from "astro:assets";
 import LogoLightBg from "../../../assets/images/logo/logo-light-bg.png";
 ---
 
-<header class="flex max-w-xl flex-row">
+<header class="flex w-full max-w-5xl flex-row items-center justify-between p-4">
   <Image
+    id="header-logo"
     src={LogoLightBg}
     alt="logo with the initials RR"
-    width={100}
-    height={100}
+    width={70}
+    height={70}
     densities={[1, 2]}
   />
-  <h1>header</h1>
+
+  <nav
+    id="header-nav"
+    class="text-md menu menu-horizontal gap-2 font-heading font-medium"
+  >
+    <li><a href="/">About</a></li>
+    <li><a href="/">Work</a></li>
+    <li><a href="/">Contact</a></li>
+  </nav>
 </header>
+
+<script>
+  import { animate, stagger } from "motion";
+
+  const logo = document.getElementById("header-logo") as HTMLImageElement;
+
+  if (logo) {
+    animate(logo, { opacity: [0, 1] }, { duration: 1 });
+  }
+
+  const nav = document.getElementById("header-nav") as HTMLUListElement;
+
+  if (nav) {
+    const navChildren = Array.from(nav.children);
+
+    animate(
+      navChildren,
+      { y: [10, 0], opacity: [0, 1] },
+      { delay: stagger(0.1), duration: 0.5 },
+    );
+  }
+</script>

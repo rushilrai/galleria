@@ -30,3 +30,8 @@
   --depth: 1;
   --noise: 0;
 }
+
+@theme {
+  --font-heading: "Merriweather", serif;
+  --font-body: "Outfit", sans-serif;
+}
