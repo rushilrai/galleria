@@ -1,0 +1,31 @@
+---
+import { Image } from "astro:assets";
+
+import WavyUnderline from "../../../assets/images/common/wavy-underline.svg";
+import WorkItem from "../components/WorkItem.astro";
+---
+
+<section
+  id="work"
+  class="flex h-full w-full max-w-5xl flex-col gap-4 rounded-2xl bg-base-300 p-8"
+>
+  <div class="flex flex-col">
+    <h2 class="font-heading text-5xl font-medium">Showcase</h2>
+
+    <Image
+      src={WavyUnderline}
+      alt="underline for the heading"
+      width={180}
+      height={20}
+      densities={[1, 2]}
+    />
+  </div>
+
+  <div class="carousel gap-4">
+    <WorkItem />
+    <WorkItem />
+    <WorkItem />
+    <WorkItem />
+    <WorkItem />
+  </div>
+</section>

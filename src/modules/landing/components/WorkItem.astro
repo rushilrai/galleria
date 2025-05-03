@@ -1,0 +1,48 @@
+---
+import { Image } from "astro:assets";
+
+import WavyUnderline from "../../../assets/images/common/wavy-underline.svg";
+---
+
+<div class="carousel-item">
+  <div
+    class="work-item-card card-border card h-72 w-64 border-primary/40 bg-base-200 hover:text-primary-content"
+  >
+    <div class="card-body">
+      <h2 class="card-title text-2xl">goESG</h2>
+      <p class="text-lg">
+        A card component has a figure, a body part, and inside body there are
+        title and actions parts.
+      </p>
+      <div class="card-actions justify-end">
+        <button class="btn btn-outline btn-sm">View Details</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<script>
+  import { hover, animate } from "motion";
+
+  const workItem = document.querySelectorAll(
+    ".work-item-card",
+  ) as NodeListOf<HTMLDivElement>;
+
+  if (workItem) {
+    hover(workItem, (element) => {
+      animate(element, {
+        width: "280px",
+        height: "300px",
+        backgroundColor: "oklch(27% 0.006 286.033)",
+      });
+
+      return () => {
+        animate(element, {
+          width: "256px",
+          height: "288px",
+          backgroundColor: "oklch(97.5% 0.005 85)",
+        });
+      };
+    });
+  }
+</script>
