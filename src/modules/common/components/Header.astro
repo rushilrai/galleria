@@ -1,5 +1,6 @@
 ---
 import { Image } from "astro:assets";
+
 import LogoLightBg from "../../../assets/images/logo/logo-light-bg.png";
 ---
 
@@ -13,7 +14,7 @@ import LogoLightBg from "../../../assets/images/logo/logo-light-bg.png";
     densities={[1, 2]}
   />
 
-  <nav id="header-nav" class="menu menu-horizontal gap-2 menu-lg font-heading">
+  <nav id="header-nav" class="menu menu-horizontal gap-1 menu-lg font-heading">
     <li><a href="/">About</a></li>
     <li><a href="/">Work</a></li>
     <li><a href="/">Contact</a></li>
@@ -37,7 +38,7 @@ import LogoLightBg from "../../../assets/images/logo/logo-light-bg.png";
     animate(
       navChildren,
       { y: [10, 0], opacity: [0, 1] },
-      { delay: stagger(0.1), duration: 0.5 },
+      { delay: stagger(0.2), duration: 1 },
     );
   }
 </script>

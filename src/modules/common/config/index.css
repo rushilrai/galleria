@@ -35,3 +35,8 @@
   --font-heading: "Merriweather", serif;
   --font-body: "Outfit", sans-serif;
 }
+
+::selection {
+  background-color: oklch(27% 0.006 286.033);
+  color: oklch(92% 0.004 286.32);
+}

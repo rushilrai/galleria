@@ -1,0 +1,43 @@
+---
+import { Image } from "astro:assets";
+import { MoveUpRightIcon } from "@lucide/astro";
+
+import WavyUnderline from "../../../assets/images/common/wavy-underline.svg";
+import ExperienceItem from "./ExperienceItem.astro";
+---
+
+<section
+  id="experience"
+  class="flex h-full w-full max-w-5xl flex-col items-start gap-4 rounded-2xl"
+>
+  <div class="flex w-full flex-row justify-between">
+    <div class="flex w-full flex-col gap-5">
+      <h2 class="font-heading text-5xl font-medium">Experience</h2>
+
+      <button class="btn w-40 btn-md"
+        >View Resume <MoveUpRightIcon size={18} /></button
+      >
+    </div>
+
+    <div class="flex flex-col items-end gap-2">
+      <p class="max-w-sm text-right font-body text-lg">
+        A brief summary of Rushil's Software Development journey over the years.
+      </p>
+
+      <Image
+        src={WavyUnderline}
+        alt="underline for the heading"
+        width={180}
+        height={20}
+        densities={[1, 2]}
+      />
+    </div>
+  </div>
+
+  <ul class="mt-4 w-full">
+    <ExperienceItem />
+    <ExperienceItem />
+    <ExperienceItem />
+    <ExperienceItem />
+  </ul>
+</section>

@@ -1,0 +1,38 @@
+<li class="experience-item-card flex w-full max-w-5xl flex-col rounded-md py-5">
+  <div class="flex w-full flex-row justify-between">
+    <div class="flex flex-col gap-1">
+      <h2 class="font-body text-xl font-semibold">
+        Senior Full Stack Software Engineer
+      </h2>
+      <h3 class="font-body text-lg">Ipseity Network - Hong Kong</h3>
+    </div>
+
+    <span class="text-2xl font-medium">2022 - Present</span>
+  </div>
+</li>
+
+<script>
+  import { hover, animate } from "motion";
+
+  const experienceItem = document.querySelectorAll(
+    ".experience-item-card",
+  ) as NodeListOf<HTMLDivElement>;
+
+  if (experienceItem) {
+    hover(experienceItem, (element) => {
+      animate(element, {
+        backgroundColor: "oklch(91% 0.007 85)",
+        paddingLeft: "1rem",
+        paddingRight: "1rem",
+      });
+
+      return () => {
+        animate(element, {
+          backgroundColor: "oklch(94.5% 0.008 85)",
+          paddingLeft: "0",
+          paddingRight: "0",
+        });
+      };
+    });
+  }
+</script>

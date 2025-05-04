@@ -1,0 +1,49 @@
+---
+import { Image } from "astro:assets";
+
+import WavyUnderline from "../../../assets/images/common/wavy-underline.svg";
+import ShowcaseItem from "../components/ShowcaseItem.astro";
+---
+
+<section
+  id="showcase"
+  class="flex h-full w-full max-w-5xl flex-col gap-4 rounded-2xl bg-base-300 p-8"
+>
+  <div class="flex flex-col">
+    <h2 class="font-heading text-5xl font-medium">Showcase</h2>
+
+    <Image
+      src={WavyUnderline}
+      alt="underline for the heading"
+      width={180}
+      height={20}
+      densities={[1, 2]}
+    />
+  </div>
+
+  <ul id="showcase-list" class="carousel gap-4">
+    <ShowcaseItem />
+    <ShowcaseItem />
+    <ShowcaseItem />
+    <ShowcaseItem />
+    <ShowcaseItem />
+  </ul>
+</section>
+
+<script>
+  import { animate, stagger } from "motion";
+
+  const showcaseList = document.getElementById(
+    "showcase-list",
+  ) as HTMLUListElement;
+
+  if (showcaseList) {
+    const showcaseListChildren = Array.from(showcaseList.children);
+
+    animate(
+      showcaseListChildren,
+      { opacity: [0, 1] },
+      { delay: stagger(0.2), duration: 1 },
+    );
+  }
+</script>

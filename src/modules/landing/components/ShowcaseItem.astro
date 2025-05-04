@@ -1,12 +1,6 @@
----
-import { Image } from "astro:assets";
-
-import WavyUnderline from "../../../assets/images/common/wavy-underline.svg";
----
-
-<div class="carousel-item">
+<li class="carousel-item">
   <div
-    class="work-item-card card-border card h-72 w-64 border-primary/40 bg-base-200 hover:text-primary-content"
+    class="showcase-item-card card-border card h-72 w-64 border-primary/40 bg-base-200 hover:text-primary-content"
   >
     <div class="card-body">
       <h2 class="card-title text-2xl">goESG</h2>
@@ -19,17 +13,17 @@ import WavyUnderline from "../../../assets/images/common/wavy-underline.svg";
       </div>
     </div>
   </div>
-</div>
+</li>
 
 <script>
   import { hover, animate } from "motion";
 
-  const workItem = document.querySelectorAll(
-    ".work-item-card",
+  const showcaseItem = document.querySelectorAll(
+    ".showcase-item-card",
   ) as NodeListOf<HTMLDivElement>;
 
-  if (workItem) {
-    hover(workItem, (element) => {
+  if (showcaseItem) {
+    hover(showcaseItem, (element) => {
       animate(element, {
         width: "280px",
         height: "300px",
