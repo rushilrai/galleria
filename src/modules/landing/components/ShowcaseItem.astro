@@ -18,6 +18,8 @@
 <script>
   import { hover, animate } from "motion";
 
+  import { getCSSVariable } from "../../common/utils";
+
   const showcaseItem = document.querySelectorAll(
     ".showcase-item-card",
   ) as NodeListOf<HTMLDivElement>;
@@ -27,14 +29,14 @@
       animate(element, {
         width: "280px",
         height: "300px",
-        backgroundColor: "oklch(27% 0.006 286.033)",
+        backgroundColor: getCSSVariable("--color-primary"),
       });
 
       return () => {
         animate(element, {
           width: "256px",
           height: "288px",
-          backgroundColor: "oklch(97.5% 0.005 85)",
+          backgroundColor: getCSSVariable("--color-base-200"),
         });
       };
     });

@@ -14,6 +14,8 @@
 <script>
   import { hover, animate } from "motion";
 
+  import { getCSSVariable } from "../../common/utils";
+
   const experienceItem = document.querySelectorAll(
     ".experience-item-card",
   ) as NodeListOf<HTMLDivElement>;
@@ -21,14 +23,14 @@
   if (experienceItem) {
     hover(experienceItem, (element) => {
       animate(element, {
-        backgroundColor: "oklch(91% 0.007 85)",
+        backgroundColor: getCSSVariable("--color-base-300"),
         paddingLeft: "1rem",
         paddingRight: "1rem",
       });
 
       return () => {
         animate(element, {
-          backgroundColor: "oklch(94.5% 0.008 85)",
+          backgroundColor: getCSSVariable("--color-base-200"),
           paddingLeft: "0",
           paddingRight: "0",
         });
