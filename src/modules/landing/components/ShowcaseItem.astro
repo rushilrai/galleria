@@ -1,15 +1,37 @@
+---
+const { key, title, description, uri } = Astro.props;
+---
+
 <li class="carousel-item">
+  <dialog id=`my_modal_${key}` class="modal">
+    <div class="modal-box">
+      <h3 class="text-lg font-bold">{title}</h3>
+      <p class="py-4">Press ESC key or click the button below to close</p>
+      <div class="modal-action">
+        <form method="dialog">
+          <button class="btn">Close</button>
+        </form>
+      </div>
+    </div>
+  </dialog>
+
   <div
     class="showcase-item-card card-border card h-72 w-64 border-primary/40 bg-base-200 hover:text-primary-content"
   >
     <div class="card-body">
-      <h2 class="card-title text-2xl">goESG</h2>
+      <h2 class="card-title text-2xl">{title}</h2>
+
       <p class="text-lg">
-        A card component has a figure, a body part, and inside body there are
-        title and actions parts.
+        {description}
       </p>
+
       <div class="card-actions justify-end">
-        <button class="btn btn-outline btn-sm">View Details</button>
+        <button
+          data-key={key}
+          class="showcase-item-card-button btn btn-outline btn-sm"
+        >
+          View Details
+        </button>
       </div>
     </div>
   </div>
@@ -39,6 +61,22 @@
           backgroundColor: getCSSVariable("--color-base-200"),
         });
       };
+    });
+  }
+
+  const showcaseItemButton = document.querySelectorAll(
+    ".showcase-item-card-button",
+  ) as NodeListOf<HTMLButtonElement>;
+
+  if (showcaseItemButton) {
+    showcaseItemButton.forEach((button) => {
+      button.addEventListener("click", () => {
+        const modal = document.getElementById(
+          `my_modal_${button.dataset.key}`,
+        ) as HTMLDialogElement;
+
+        modal.showModal();
+      });
     });
   }
 </script>

@@ -1,13 +1,17 @@
+---
+const { key, title, org, term, uri } = Astro.props;
+---
+
 <li class="experience-item-card flex w-full max-w-5xl flex-col rounded-md py-5">
   <div class="flex w-full flex-row justify-between">
     <div class="flex flex-col gap-1">
       <h2 class="font-body text-xl font-semibold">
-        Senior Full Stack Software Engineer
+        {title}
       </h2>
-      <h3 class="font-body text-lg">Ipseity Network - Hong Kong</h3>
+      <h3 class="font-body text-lg">{org}</h3>
     </div>
 
-    <span class="text-2xl font-medium">2022 - Present</span>
+    <span class="text-2xl font-medium">{term}</span>
   </div>
 </li>
 

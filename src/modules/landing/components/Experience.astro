@@ -4,6 +4,27 @@ import { MoveUpRightIcon } from "@lucide/astro";
 
 import WavyUnderline from "../../../assets/images/common/wavy-underline.svg";
 import ExperienceItem from "./ExperienceItem.astro";
+
+const EXPERIENCE_ITEMS = [
+  {
+    title: "Senior Full Stack Software Engineer",
+    org: "Ipseity Network - Hong Kong",
+    term: "2022 - Present",
+    uri: "https://www.ipseity.network",
+  },
+  {
+    title: "Full Stack Software Engineer",
+    org: "Ipseity Network - Hong Kong",
+    term: "2021 - 2022",
+    uri: "https://www.ipseity.network",
+  },
+  {
+    title: "Software Engineer Intern",
+    org: "Ipseity Network - Hong Kong",
+    term: "2020 - 2021",
+    uri: "https://www.ipseity.network",
+  },
+];
 ---
 
 <section
@@ -35,9 +56,16 @@ import ExperienceItem from "./ExperienceItem.astro";
   </div>
 
   <ul class="mt-4 w-full">
-    <ExperienceItem />
-    <ExperienceItem />
-    <ExperienceItem />
-    <ExperienceItem />
+    {
+      EXPERIENCE_ITEMS.map((item, index) => (
+        <ExperienceItem
+          key={index}
+          title={item.title}
+          org={item.org}
+          term={item.term}
+          uri={item.uri}
+        />
+      ))
+    }
   </ul>
 </section>

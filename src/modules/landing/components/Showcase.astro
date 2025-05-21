@@ -3,6 +3,33 @@ import { Image } from "astro:assets";
 
 import WavyUnderline from "../../../assets/images/common/wavy-underline.svg";
 import ShowcaseItem from "../components/ShowcaseItem.astro";
+
+const SHOWCASE_ITEMS = [
+  {
+    title: "goESG",
+    description:
+      "A card component has a figure, a body part, and inside body there are title and actions parts.",
+    uri: "https://www.goesg.co",
+  },
+  {
+    title: "DualMint",
+    description:
+      "A card component has a figure, a body part, and inside body there are title and actions parts.",
+    uri: "https://www.goesg.co",
+  },
+  {
+    title: "goESG",
+    description:
+      "A card component has a figure, a body part, and inside body there are title and actions parts.",
+    uri: "https://www.goesg.co",
+  },
+  {
+    title: "goESG",
+    description:
+      "A card component has a figure, a body part, and inside body there are title and actions parts.",
+    uri: "https://www.goesg.co",
+  },
+];
 ---
 
 <section
@@ -22,11 +49,16 @@ import ShowcaseItem from "../components/ShowcaseItem.astro";
   </div>
 
   <ul id="showcase-list" class="carousel gap-4">
-    <ShowcaseItem />
-    <ShowcaseItem />
-    <ShowcaseItem />
-    <ShowcaseItem />
-    <ShowcaseItem />
+    {
+      SHOWCASE_ITEMS.map((item, index) => (
+        <ShowcaseItem
+          key={index}
+          title={item.title}
+          description={item.description}
+          uri={item.uri}
+        />
+      ))
+    }
   </ul>
 </section>
 
