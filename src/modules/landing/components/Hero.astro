@@ -10,7 +10,7 @@ import HeroImage from "../../../assets/images/landing/hero.png";
   id="hero"
   class="flex h-full w-full max-w-5xl flex-row justify-between gap-6"
 >
-  <div class="flex max-w-md flex-col justify-center gap-4">
+  <div id="hero-content" class="flex max-w-md flex-col justify-center gap-4">
     <Image
       id="headshot"
       src={Headshot}
@@ -18,27 +18,23 @@ import HeroImage from "../../../assets/images/landing/hero.png";
       width={100}
       height={100}
       densities={[1, 2]}
-      class="mask mask-circle pt-2"
+      class="mask mask-circle pt-2 opacity-0"
     />
 
     <h2
       id="hero-greeting"
-      class="font-heading text-5xl font-normal text-base-content"
+      class="font-heading text-5xl font-normal text-base-content opacity-0"
     >
-      <span class="inline-block opacity-0">Hey!</span>
-      <span class="inline-block opacity-0">I</span>
-      <span class="inline-block opacity-0">am</span>
-      <span class="inline-block font-semibold opacity-0">Rushil</span>
-      <span class="inline-block font-semibold opacity-0">Rai</span>
+      Hey! I am <span class="inline-block font-semibold">Rushil Rai</span>
     </h2>
 
-    <p class="mb-2 max-w-xl font-body text-lg font-medium">
+    <p class="mb-2 max-w-xl font-body text-lg font-medium opacity-0">
       Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod
       tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim
       veniam, quis nostrud exercitation ullamco.
     </p>
 
-    <div class="flex flex-row gap-2">
+    <div class="flex flex-row gap-2 opacity-0">
       <button class="btn max-w-[200px] btn-md btn-primary">
         <MailIcon size={16} class="text-primary-content" />
 
@@ -108,24 +104,17 @@ import HeroImage from "../../../assets/images/landing/hero.png";
   import { animate, inView, stagger } from "motion";
 
   const hero = document.getElementById("hero") as HTMLDivElement;
-  const heroGreeting = document.getElementById(
-    "hero-greeting",
-  ) as HTMLHeadingElement;
+  const heroContent = document.getElementById("hero-content") as HTMLDivElement;
   const heroImage = document.getElementById("hero-image") as HTMLImageElement;
 
-  if (hero && heroGreeting && heroImage) {
-    const heroGreetingChildren = Array.from(heroGreeting.children);
+  if (hero && heroContent && heroImage) {
+    const heroContentChildren = Array.from(heroContent.children);
 
     inView(hero, () => {
       animate(
-        heroGreetingChildren,
-        { opacity: [0, 1], scale: [1.2, 1], x: [10, 0], y: [-5, 0] },
-        {
-          duration: 0.7,
-          delay: stagger(0.15),
-          ease: "circOut",
-          type: "spring",
-        },
+        heroContentChildren,
+        { y: [10, 0], opacity: [0, 1] },
+        { delay: stagger(0.2), duration: 1 },
       );
 
       animate(heroImage, { opacity: [0, 1] }, { duration: 1 });
