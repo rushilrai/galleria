@@ -34,9 +34,9 @@ const SHOWCASE_ITEMS = [
 
 <section
   id="showcase"
-  class="flex h-full w-full max-w-5xl flex-col gap-4 rounded-2xl bg-base-300 p-8"
+  class="flex h-full w-full max-w-5xl flex-col gap-4 bg-base-300 py-5 lg:rounded-2xl lg:py-8"
 >
-  <div class="flex flex-col">
+  <div class="flex flex-col px-5 lg:px-8">
     <h2 class="font-heading text-5xl font-medium">Showcase</h2>
 
     <Image
@@ -48,7 +48,10 @@ const SHOWCASE_ITEMS = [
     />
   </div>
 
-  <ul id="showcase-list" class="carousel gap-4">
+  <ul
+    id="showcase-list"
+    class="carousel carousel-center space-x-4 px-4 lg:px-6"
+  >
     {
       SHOWCASE_ITEMS.map((item, index) => (
         <ShowcaseItem
