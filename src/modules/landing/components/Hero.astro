@@ -8,9 +8,12 @@ import HeroImage from "../../../assets/images/landing/hero.png";
 
 <section
   id="hero"
-  class="flex h-full w-full max-w-5xl flex-row justify-between gap-6"
+  class="flex h-full w-full max-w-sm flex-col justify-between gap-18 p-4 md:max-w-md lg:max-w-5xl lg:flex-row lg:gap-6"
 >
-  <div id="hero-content" class="flex max-w-md flex-col justify-center gap-4">
+  <div
+    id="hero-content"
+    class="flex max-w-sm flex-col justify-center gap-4 lg:max-w-md"
+  >
     <Image
       id="headshot"
       src={Headshot}
@@ -18,12 +21,12 @@ import HeroImage from "../../../assets/images/landing/hero.png";
       width={100}
       height={100}
       densities={[1, 2]}
-      class="mask mask-circle pt-2 opacity-0"
+      class="mask mask-circle opacity-0 lg:pt-2"
     />
 
     <h2
       id="hero-greeting"
-      class="font-heading text-4xl font-normal text-base-content opacity-0"
+      class="font-heading text-3xl font-normal text-base-content opacity-0 lg:text-4xl"
     >
       Hey! I am <span class="inline-block font-semibold">Rushil Rai</span>
     </h2>
@@ -109,7 +112,7 @@ import HeroImage from "../../../assets/images/landing/hero.png";
     width={450}
     height={430}
     densities={[1, 2]}
-    class="opacity-0"
+    class="w-full opacity-0 lg:h-[430px] lg:w-[450px]"
   />
 </section>
 

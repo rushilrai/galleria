@@ -16,9 +16,9 @@ const { title, org, term, uri } = Astro.props;
 </li>
 
 <script>
-  import { hover, animate } from "motion";
+  import { hover, animate, press } from "motion";
 
-  import { getCSSVariable } from "../../common/utils";
+  import { getCSSVariable, isTouchDevice } from "../../common/utils";
 
   const experienceItem = document.querySelectorAll(
     ".experience-item-card",
@@ -40,5 +40,15 @@ const { title, org, term, uri } = Astro.props;
         });
       };
     });
+
+    if (isTouchDevice()) {
+      press(experienceItem, (element) => {
+        animate(element, {
+          backgroundColor: getCSSVariable("--color-base-300"),
+          paddingLeft: "1rem",
+          paddingRight: "1rem",
+        });
+      });
+    }
   }
 </script>

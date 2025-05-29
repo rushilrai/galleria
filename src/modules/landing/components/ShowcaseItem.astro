@@ -38,9 +38,9 @@ const { key, title, description, uri } = Astro.props;
 </li>
 
 <script>
-  import { hover, animate } from "motion";
+  import { hover, animate, press } from "motion";
 
-  import { getCSSVariable } from "../../common/utils";
+  import { getCSSVariable, isTouchDevice } from "../../common/utils";
 
   const showcaseItem = document.querySelectorAll(
     ".showcase-item-card",
@@ -62,6 +62,24 @@ const { key, title, description, uri } = Astro.props;
         });
       };
     });
+
+    if (isTouchDevice()) {
+      press(showcaseItem, (element) => {
+        animate(element, {
+          width: "280px",
+          height: "300px",
+          backgroundColor: getCSSVariable("--color-primary"),
+        });
+
+        return () => {
+          animate(element, {
+            width: "256px",
+            height: "288px",
+            backgroundColor: getCSSVariable("--color-base-200"),
+          });
+        };
+      });
+    }
   }
 
   const showcaseItemButton = document.querySelectorAll(
