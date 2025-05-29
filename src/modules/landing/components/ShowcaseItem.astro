@@ -52,6 +52,7 @@ const { key, title, description, uri } = Astro.props;
         width: "280px",
         height: "300px",
         backgroundColor: getCSSVariable("--color-primary"),
+        color: getCSSVariable("--color-primary-content"),
       });
 
       return () => {
@@ -59,6 +60,7 @@ const { key, title, description, uri } = Astro.props;
           width: "256px",
           height: "288px",
           backgroundColor: getCSSVariable("--color-base-200"),
+          color: getCSSVariable("--color-base-content"),
         });
       };
     });
@@ -69,6 +71,7 @@ const { key, title, description, uri } = Astro.props;
           width: "280px",
           height: "300px",
           backgroundColor: getCSSVariable("--color-primary"),
+          color: getCSSVariable("--color-primary-content"),
         });
 
         return () => {
@@ -76,6 +79,7 @@ const { key, title, description, uri } = Astro.props;
             width: "256px",
             height: "288px",
             backgroundColor: getCSSVariable("--color-base-200"),
+            color: getCSSVariable("--color-base-content"),
           });
         };
       });

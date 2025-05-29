@@ -48,6 +48,14 @@ const { title, org, term, uri } = Astro.props;
           paddingLeft: "1rem",
           paddingRight: "1rem",
         });
+
+        return () => {
+          animate(element, {
+            backgroundColor: getCSSVariable("--color-base-200"),
+            paddingLeft: "0",
+            paddingRight: "0",
+          });
+        };
       });
     }
   }
