@@ -21,8 +21,15 @@ import HeroImage from "../../../assets/images/landing/hero.png";
       class="mask mask-circle pt-2"
     />
 
-    <h2 class="font-heading text-5xl font-normal text-base-content">
-      Hey! I am <span class="font-semibold">Rushil Rai</span>
+    <h2
+      id="hero-greeting"
+      class="font-heading text-5xl font-normal text-base-content"
+    >
+      <span class="inline-block opacity-0">Hey!</span>
+      <span class="inline-block opacity-0">I</span>
+      <span class="inline-block opacity-0">am</span>
+      <span class="inline-block font-semibold opacity-0">Rushil</span>
+      <span class="inline-block font-semibold opacity-0">Rai</span>
     </h2>
 
     <p class="mb-2 max-w-xl font-body text-lg font-medium">
@@ -98,11 +105,30 @@ import HeroImage from "../../../assets/images/landing/hero.png";
 </section>
 
 <script>
-  import { animate, scroll } from "motion";
+  import { animate, inView, stagger } from "motion";
 
   const hero = document.getElementById("hero") as HTMLDivElement;
-  const heroBg = document.getElementById("hero-bg") as HTMLImageElement;
+  const heroGreeting = document.getElementById(
+    "hero-greeting",
+  ) as HTMLHeadingElement;
+  const heroImage = document.getElementById("hero-image") as HTMLImageElement;
 
-  if (hero && heroBg) {
+  if (hero && heroGreeting && heroImage) {
+    const heroGreetingChildren = Array.from(heroGreeting.children);
+
+    inView(hero, () => {
+      animate(
+        heroGreetingChildren,
+        { opacity: [0, 1], scale: [1.2, 1], x: [10, 0], y: [-5, 0] },
+        {
+          duration: 0.7,
+          delay: stagger(0.15),
+          ease: "circOut",
+          type: "spring",
+        },
+      );
+
+      animate(heroImage, { opacity: [0, 1] }, { duration: 1 });
+    });
   }
 </script>
