@@ -1,9 +1,9 @@
 ---
-const { key, title, org, term, uri } = Astro.props;
+const { title, org, term, uri } = Astro.props;
 ---
 
 <li class="experience-item-card flex w-full max-w-5xl flex-col rounded-md py-5">
-  <div class="flex w-full flex-row justify-between">
+  <a href={uri} target="_blank" class="flex w-full flex-row justify-between">
     <div class="flex flex-col gap-1">
       <h2 class="font-body text-xl font-semibold">
         {title}
@@ -12,7 +12,7 @@ const { key, title, org, term, uri } = Astro.props;
     </div>
 
     <span class="text-2xl font-medium">{term}</span>
-  </div>
+  </a>
 </li>
 
 <script>
