@@ -1,17 +1,35 @@
 ---
-const { key, title, description, uri } = Astro.props;
+import { XIcon } from "@lucide/astro";
+import { Image } from "astro:assets";
+
+import WavyUnderlineDarkBg from "../../../assets/images/common/wavy-underline-darkbg.svg";
+
+const { key, title, description_short, description, uri } = Astro.props;
 ---
 
 <li class="carousel-item">
-  <dialog id=`my_modal_${key}` class="modal">
-    <div class="modal-box">
-      <h3 class="text-lg font-bold">{title}</h3>
-      <p class="py-4">Press ESC key or click the button below to close</p>
-      <div class="modal-action">
-        <form method="dialog">
-          <button class="btn">Close</button>
-        </form>
-      </div>
+  <dialog id=`my_modal_${key}` class="modal modal-bottom">
+    <div class="modal-backdrop bg-primary/50"></div>
+
+    <div
+      class="modal-box mx-auto min-h-11/12 max-w-4xl bg-primary text-primary-content"
+    >
+      <form method="dialog">
+        <button class="btn absolute top-5 right-5 btn-circle btn-ghost">
+          <XIcon />
+        </button>
+      </form>
+
+      <h3 class="mb-2 font-heading text-5xl">{title}</h3>
+      <Image
+        src={WavyUnderlineDarkBg}
+        alt="underline for the heading"
+        width={120}
+        height={20}
+        densities={[1, 2]}
+      />
+
+      <p class="py-4 text-xl">{description}</p>
     </div>
   </dialog>
 
@@ -22,7 +40,7 @@ const { key, title, description, uri } = Astro.props;
       <h2 class="card-title text-2xl">{title}</h2>
 
       <p class="text-lg">
-        {description}
+        {description_short}
       </p>
 
       <div class="card-actions justify-end">

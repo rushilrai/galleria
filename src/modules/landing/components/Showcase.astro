@@ -2,31 +2,48 @@
 import { Image } from "astro:assets";
 
 import WavyUnderline from "../../../assets/images/common/wavy-underline.svg";
+import Showcase1 from "../../../assets/images/landing/showcase.png";
 import ShowcaseItem from "../components/ShowcaseItem.astro";
 
 const SHOWCASE_ITEMS = [
   {
     title: "goESG",
-    description:
+    associated_with: "goESG",
+    screenshot_urls: [Showcase1],
+    description_short:
       "A card component has a figure, a body part, and inside body there are title and actions parts.",
+    description:
+      "A minimal and responsive web app built to explore dynamic interactions and modern UI patterns. Features clean design, fast performance, and seamless integration with third-party APIs. Ideal for showcasing frontend skills and component architecture.",
+    uri: "https://www.goesg.co",
+  },
+  {
+    title: "NagadPe",
+    associated_with: "NagadPe",
+    screenshot_urls: [Showcase1],
+    description_short:
+      "A card component has a figure, a body part, and inside body there are title and actions parts.",
+    description:
+      "A minimal and responsive web app built to explore dynamic interactions and modern UI patterns. Features clean design, fast performance, and seamless integration with third-party APIs. Ideal for showcasing frontend skills and component architecture.",
     uri: "https://www.goesg.co",
   },
   {
     title: "DualMint",
-    description:
+    associated_with: "DualMint",
+    screenshot_urls: [Showcase1],
+    description_short:
       "A card component has a figure, a body part, and inside body there are title and actions parts.",
+    description:
+      "A minimal and responsive web app built to explore dynamic interactions and modern UI patterns. Features clean design, fast performance, and seamless integration with third-party APIs. Ideal for showcasing frontend skills and component architecture.",
     uri: "https://www.goesg.co",
   },
   {
-    title: "goESG",
-    description:
+    title: "Skrate",
+    associated_with: "Skrate",
+    screenshot_urls: [Showcase1],
+    description_short:
       "A card component has a figure, a body part, and inside body there are title and actions parts.",
-    uri: "https://www.goesg.co",
-  },
-  {
-    title: "goESG",
     description:
-      "A card component has a figure, a body part, and inside body there are title and actions parts.",
+      "A minimal and responsive web app built to explore dynamic interactions and modern UI patterns. Features clean design, fast performance, and seamless integration with third-party APIs. Ideal for showcasing frontend skills and component architecture.",
     uri: "https://www.goesg.co",
   },
 ];
@@ -42,7 +59,7 @@ const SHOWCASE_ITEMS = [
     <Image
       src={WavyUnderline}
       alt="underline for the heading"
-      width={180}
+      width={190}
       height={20}
       densities={[1, 2]}
     />
@@ -57,6 +74,9 @@ const SHOWCASE_ITEMS = [
         <ShowcaseItem
           key={index}
           title={item.title}
+          associated_with={item.associated_with}
+          screenshot_urls={item.screenshot_urls}
+          description_short={item.description_short}
           description={item.description}
           uri={item.uri}
         />

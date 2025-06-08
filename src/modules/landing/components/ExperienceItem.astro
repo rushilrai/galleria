@@ -2,8 +2,10 @@
 const { title, org, term, uri } = Astro.props;
 ---
 
-<li class="experience-item-card flex w-full max-w-5xl flex-col rounded-md py-5">
-  <a href={uri} target="_blank" class="flex w-full flex-row justify-between">
+<a href={uri} target="_blank">
+  <li
+    class="experience-item-card flex w-full max-w-5xl flex-row justify-between rounded-md py-5"
+  >
     <div class="flex flex-col gap-1">
       <h2 class="font-body text-xl font-semibold">
         {title}
@@ -12,8 +14,8 @@ const { title, org, term, uri } = Astro.props;
     </div>
 
     <span class="text-2xl font-medium">{term}</span>
-  </a>
-</li>
+  </li>
+</a>
 
 <script>
   import { hover, animate, press } from "motion";
