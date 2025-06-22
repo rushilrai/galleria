@@ -4,7 +4,7 @@ const { title, org, term, uri } = Astro.props;
 
 <a href={uri} target="_blank">
   <li
-    class="experience-item-card flex w-full max-w-5xl flex-row justify-between rounded-md py-5"
+    class="experience-item-card flex w-full max-w-5xl flex-col justify-between rounded-md py-5 sm:flex-row"
   >
     <div class="flex flex-col gap-1">
       <h2 class="font-body text-xl font-semibold">
@@ -13,7 +13,7 @@ const { title, org, term, uri } = Astro.props;
       <h3 class="font-body text-lg">{org}</h3>
     </div>
 
-    <span class="text-2xl font-medium">{term}</span>
+    <span class="text-lg font-medium sm:text-2xl">{term}</span>
   </li>
 </a>
 
@@ -47,8 +47,8 @@ const { title, org, term, uri } = Astro.props;
       press(experienceItem, (element) => {
         animate(element, {
           backgroundColor: getCSSVariable("--color-base-300"),
-          paddingLeft: "1rem",
-          paddingRight: "1rem",
+          paddingLeft: "0.5rem",
+          paddingRight: "0.5rem",
         });
 
         return () => {

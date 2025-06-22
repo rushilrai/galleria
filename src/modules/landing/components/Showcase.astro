@@ -2,49 +2,100 @@
 import { Image } from "astro:assets";
 
 import WavyUnderline from "../../../assets/images/common/wavy-underline.svg";
-import Showcase1 from "../../../assets/images/landing/showcase.png";
 import ShowcaseItem from "../components/ShowcaseItem.astro";
 
 const SHOWCASE_ITEMS = [
   {
     title: "goESG",
-    associated_with: "goESG",
-    screenshot_urls: [Showcase1],
+    associated_with: "Ipseity Network",
     description_short:
       "A card component has a figure, a body part, and inside body there are title and actions parts.",
     description:
       "A minimal and responsive web app built to explore dynamic interactions and modern UI patterns. Features clean design, fast performance, and seamless integration with third-party APIs. Ideal for showcasing frontend skills and component architecture.",
-    uri: "https://www.goesg.co",
+    images_portrait: [
+      "https://placehold.co/300x400",
+      "https://placehold.co/300x400",
+    ],
+    images_landscape: [
+      "https://placehold.co/600x400",
+      "https://placehold.co/600x400",
+    ],
+    links: [
+      {
+        label: "App Store",
+        url: "https://www.goesg.co",
+      },
+    ],
   },
   {
     title: "NagadPe",
-    associated_with: "NagadPe",
-    screenshot_urls: [Showcase1],
+    associated_with: "RR Solutions",
     description_short:
       "A card component has a figure, a body part, and inside body there are title and actions parts.",
     description:
       "A minimal and responsive web app built to explore dynamic interactions and modern UI patterns. Features clean design, fast performance, and seamless integration with third-party APIs. Ideal for showcasing frontend skills and component architecture.",
-    uri: "https://www.goesg.co",
+    images_portrait: [
+      "https://placehold.co/300x400",
+      "https://placehold.co/300x400",
+    ],
+    images_landscape: [
+      "https://placehold.co/600x400",
+      "https://placehold.co/600x400",
+    ],
+    links: [
+      {
+        label: "Play Store",
+        url: "https://www.goesg.co",
+      },
+    ],
   },
   {
     title: "DualMint",
-    associated_with: "DualMint",
-    screenshot_urls: [Showcase1],
+    associated_with: "Ipseity Network",
     description_short:
       "A card component has a figure, a body part, and inside body there are title and actions parts.",
     description:
       "A minimal and responsive web app built to explore dynamic interactions and modern UI patterns. Features clean design, fast performance, and seamless integration with third-party APIs. Ideal for showcasing frontend skills and component architecture.",
-    uri: "https://www.goesg.co",
+    images_portrait: [
+      "https://placehold.co/300x400",
+      "https://placehold.co/300x400",
+    ],
+    images_landscape: [
+      "https://placehold.co/600x400",
+      "https://placehold.co/600x400",
+    ],
+    links: [
+      {
+        label: "Website",
+        url: "https://www.goesg.co",
+      },
+    ],
   },
   {
     title: "Skrate",
-    associated_with: "Skrate",
-    screenshot_urls: [Showcase1],
+    associated_with: "",
     description_short:
       "A card component has a figure, a body part, and inside body there are title and actions parts.",
     description:
       "A minimal and responsive web app built to explore dynamic interactions and modern UI patterns. Features clean design, fast performance, and seamless integration with third-party APIs. Ideal for showcasing frontend skills and component architecture.",
-    uri: "https://www.goesg.co",
+    images_portrait: [
+      "https://placehold.co/300x400",
+      "https://placehold.co/300x400",
+    ],
+    images_landscape: [
+      "https://placehold.co/600x400",
+      "https://placehold.co/600x400",
+    ],
+    links: [
+      {
+        label: "WebApp",
+        url: "https://www.goesg.co",
+      },
+      {
+        label: "Play Store",
+        url: "https://www.goesg.co",
+      },
+    ],
   },
 ];
 ---
@@ -75,10 +126,11 @@ const SHOWCASE_ITEMS = [
           key={index}
           title={item.title}
           associated_with={item.associated_with}
-          screenshot_urls={item.screenshot_urls}
           description_short={item.description_short}
           description={item.description}
-          uri={item.uri}
+          images_portrait={item.images_portrait}
+          images_landscape={item.images_landscape}
+          links={item.links}
         />
       ))
     }

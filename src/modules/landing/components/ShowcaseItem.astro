@@ -1,10 +1,19 @@
 ---
-import { XIcon } from "@lucide/astro";
+import { LinkIcon, XIcon } from "@lucide/astro";
 import { Image } from "astro:assets";
 
 import WavyUnderlineDarkBg from "../../../assets/images/common/wavy-underline-darkbg.svg";
 
-const { key, title, description_short, description, uri } = Astro.props;
+const {
+  key,
+  title,
+  associated_with,
+  description_short,
+  description,
+  images_portrait,
+  images_landscape,
+  links,
+} = Astro.props;
 ---
 
 <li class="carousel-item">
@@ -12,7 +21,7 @@ const { key, title, description_short, description, uri } = Astro.props;
     <div class="modal-backdrop bg-primary/50"></div>
 
     <div
-      class="modal-box mx-auto min-h-11/12 max-w-4xl bg-primary text-primary-content"
+      class="modal-box mx-auto flex min-h-11/12 max-w-4xl flex-col gap-4 overflow-scroll bg-primary text-primary-content"
     >
       <form method="dialog">
         <button class="btn absolute top-5 right-5 btn-circle btn-ghost">
@@ -20,16 +29,65 @@ const { key, title, description_short, description, uri } = Astro.props;
         </button>
       </form>
 
-      <h3 class="mb-2 font-heading text-5xl">{title}</h3>
-      <Image
-        src={WavyUnderlineDarkBg}
-        alt="underline for the heading"
-        width={120}
-        height={20}
-        densities={[1, 2]}
-      />
+      <div class="flex flex-col">
+        <h3 class="font-heading text-5xl">{title}</h3>
 
-      <p class="py-4 text-xl">{description}</p>
+        <Image
+          src={WavyUnderlineDarkBg}
+          alt="underline for the heading"
+          width={120}
+          height={20}
+          densities={[1, 2]}
+        />
+      </div>
+
+      <p class="text-xl">{description}</p>
+
+      <div class="flex w-full flex-row gap-1.5">
+        {
+          links.map((link: { label: string; url: string }) => (
+            <a href={link.url} class="btn w-fit btn-soft btn-sm">
+              <LinkIcon size={14} /> {link.label}
+            </a>
+          ))
+        }
+      </div>
+
+      <div
+        class="carousel min-h-[400px] w-full carousel-center space-x-4 rounded-box bg-neutral"
+      >
+        {
+          images_landscape.map((image: string, index: number) => (
+            <div class="carousel-item">
+              <Image
+                src={image}
+                alt="underline for the heading"
+                width={600}
+                height={400}
+                densities={[1, 2]}
+                class="hidden rounded-box md:block"
+              />
+
+              <Image
+                src={images_portrait[index]}
+                alt="underline for the heading"
+                width={300}
+                height={400}
+                densities={[1, 2]}
+                class="block rounded-box md:hidden"
+              />
+            </div>
+          ))
+        }
+      </div>
+
+      {
+        associated_with && (
+          <span class="font-body text-lg text-primary-content/60">
+            @ {associated_with}
+          </span>
+        )
+      }
     </div>
   </dialog>
 
